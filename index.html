@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atmosfär - The Weather at Your Fingertips</title>
+    <meta name="author" content="Sahal">
+    <meta name="description" content="Atmosfär - The Weather at your Fingertips">
+    <meta name="keywords" content="Atmosfär, Atmosfär Weather App">
+    <link rel="stylesheet" href="./index.css" media="screen">
+    <script src="https://kit.fontawesome.com/fe9589e77e.js" crossorigin="anonymous" defer></script>
+</head>
+<body>
+    <div class="weather-app">
+        <div class="container">
+            <div class="loader-wrapper">
+                <span class="loader"></span>
+            </div>
+            <h3 class="brand">atmosfär.</h3>
+            <div>
+                <h1 class="temp">??&#176; C/F</h1>
+                <div class="city-time">
+                    <h1 class="name">??</h1>
+                    <small>
+                        <span class="country">???</span> -
+                        <span class="datetime">??:??</span>
+                    </small>
+                </div>
+                <div class="weather">
+                    <img src="./assets/icons/questionmark.svg" class="weatherIcon" id="weatherIcon" alt="weatherIcon" width="42" height="42"/>
+                    <span class="condition">???</span>
+                </div>
+            </div>
+        </div>
+        <div class="panel">
+                <input type="text" class="search" placeholder="Search Location..."/>
+            <button class="submit" aria-label="Search">
+                <i class="fas fa-search"></i>
+            </button>
+            <ul class="details">
+                <div class="scroll-container">
+                    <div class="weather-boxes">
+                        <div class="weather-box hour1">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 1" class="box-icon hour1">
+                            <div class="box-content">
+                                <span class="box-title hour1">Title 1</span>
+                                <span class="box-subtitle hour1">Subtitle 1</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour2">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 2" class="box-icon hour2">
+                            <div class="box-content">
+                                <span class="box-title hour2">Title 2</span>
+                                <span class="box-subtitle hour2">Subtitle 2</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour3">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 3" class="box-icon hour3">
+                            <div class="box-content">
+                                <span class="box-title hour3">Title 3</span>
+                                <span class="box-subtitle hour3">Subtitle 3</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour4">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 4" class="box-icon hour4">
+                            <div class="box-content">
+                                <span class="box-title hour4">Title 4</span>
+                                <span class="box-subtitle hour4">Subtitle 4</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour5">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 5" class="box-icon hour5">
+                            <div class="box-content">
+                                <span class="box-title hour5">Title 5</span>
+                                <span class="box-subtitle hour5">Subtitle 5</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour6">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 6" class="box-icon hour6">
+                            <div class="box-content">
+                                <span class="box-title hour6">Title 6</span>
+                                <span class="box-subtitle hour6">Subtitle 6</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour7">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 7" class="box-icon hour7">
+                            <div class="box-content">
+                                <span class="box-title hour7">Title 7</span>
+                                <span class="box-subtitle hour7">Subtitle 7</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour8">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 8" class="box-icon hour8">
+                            <div class="box-content">
+                                <span class="box-title hour8">Title 8</span>
+                                <span class="box-subtitle hour8">Subtitle 8</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour9">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 9" class="box-icon hour9">
+                            <div class="box-content">
+                                <span class="box-title hour9">Title 9</span>
+                                <span class="box-subtitle hour9">Subtitle 9</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour10">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 10" class="box-icon hour10">
+                            <div class="box-content">
+                                <span class="box-title hour10">Title 10</span>
+                                <span class="box-subtitle hour10">Subtitle 10</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour11">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 11" class="box-icon hour11">
+                            <div class="box-content">
+                                <span class="box-title hour11">Title 11</span>
+                                <span class="box-subtitle hour11">Subtitle 11</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour12">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 12" class="box-icon hour12">
+                            <div class="box-content">
+                                <span class="box-title hour12">Title 12</span>
+                                <span class="box-subtitle hour12">Subtitle 12</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour13">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 13" class="box-icon hour13">
+                            <div class="box-content">
+                                <span class="box-title hour13">Title 13</span>
+                                <span class="box-subtitle hour13">Subtitle 13</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour14">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 14" class="box-icon hour14">
+                            <div class="box-content">
+                                <span class="box-title hour14">Title 14</span>
+                                <span class="box-subtitle hour14">Subtitle 14</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour15">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 15" class="box-icon hour15">
+                            <div class="box-content">
+                                <span class="box-title hour15">Title 15</span>
+                                <span class="box-subtitle hour15">Subtitle 15</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour16">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 16" class="box-icon hour16">
+                            <div class="box-content">
+                                <span class="box-title hour16">Title 16</span>
+                                <span class="box-subtitle hour16">Subtitle 16</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour17">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 17" class="box-icon hour17">
+                            <div class="box-content">
+                                <span class="box-title hour17">Title 17</span>
+                                <span class="box-subtitle hour17">Subtitle 17</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour18">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 18" class="box-icon hour18">
+                            <div class="box-content">
+                                <span class="box-title hour18">Title 18</span>
+                                <span class="box-subtitle hour18">Subtitle 18</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour19">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 19" class="box-icon hour19">
+                            <div class="box-content">
+                                <span class="box-title hour19">Title 19</span>
+                                <span class="box-subtitle hour19">Subtitle 19</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour20">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 20" class="box-icon hour20">
+                            <div class="box-content">
+                                <span class="box-title hour20">Title 20</span>
+                                <span class="box-subtitle hour20">Subtitle 20</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour21">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 21" class="box-icon hour21">
+                            <div class="box-content">
+                                <span class="box-title hour21">Title 21</span>
+                                <span class="box-subtitle hour21">Subtitle 21</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour22">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 22" class="box-icon hour22">
+                            <div class="box-content">
+                                <span class="box-title hour22">Title 22</span>
+                                <span class="box-subtitle hour22">Subtitle 22</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour23">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 23" class="box-icon hour23">
+                            <div class="box-content">
+                                <span class="box-title hour23">Title 23</span>
+                                <span class="box-subtitle hour23">Subtitle 23</span>
+                            </div>
+                        </div>
+                        <div class="weather-box hour24">
+                            <img src="./assets/icons/questionmark.svg" alt="Icon 24" class="box-icon hour24">
+                            <div class="box-content">
+                                <span class="box-title hour24">Title 24</span>
+                                <span class="box-subtitle hour24">Subtitle 24</span>
+                            </div>
+                        </div>
+                    </div>  
+                </div>                       
+            </ul>
+            <ul class="details">
+                <h4>Current Weather Details</h4>
+                <li><span>Feels Like</span><span class="feelslike">??&#176;C/F</span></li>
+                <li><span>Humidity</span><span class="humidity">??%</span></li>
+                <li><span>Cloudy</span><span class="cloud">??%</span></li>
+                <li><span>Visibility</span><span class="visib">??KM / Miles</span></li>
+                <li><span>Precipitation</span><span class="precip">???</span></li>
+                <li><span>Wind</span><span class="wind">??KMph / Mph</span></li>
+                <li><span>Wind Direction In Degrees</span><span class="winddeg">??&#176;</span></li>
+                <li><span>Wind Direction</span><span class="winddir">???</span></li>
+                <li><span>Wind Gust</span><span class="gust">???</span></li>
+                <li><span>UV Index</span><span class="uvindex">???</span></li>
+                <li><span>Pressure</span><span class="pressure">???MB / IN</span></li>
+                <h4>Air Quality Details</h4>
+                <li><span>CO (Carbon Monoxide)</span><span class="carbmonx">?? μg/m3</span></li>
+                <li><span>O3 (Ozone)</span><span class="ozone">?? μg/m3</span></li>
+                <li><span>NO2 (Nitrogen Dioxide)</span><span class="nitrodiox">?? μg/m3</span></li>
+                <li><span>SO2 (Sulphur Dioxide)</span><span class="sulphdiox">?? μg/m3</span></li>
+                <li><span>PM2.5 (Particulate Matter Less Than 2.5 Microns)</span><span class="pm25">?? μg/m3</span></li>
+                <li><span>PM10 (Particulate Matter Less Than 10 Microns)</span><span class="pm10">?? μg/m3</span></li>
+                <li><span>Air Quality Index (As Per US <a class="links" href="https://gist.github.com/SahalMoh/b2056d823e63e1d7f51abf7232b4bf5b#air-quality-index-as-per-us-epa-standard">EPA Standards</a>)</span><span class="usepaindex">???</span></li>
+                <li><span>Air Quality Index (As Per UK <a class="links" href="https://gist.github.com/SahalMoh/b2056d823e63e1d7f51abf7232b4bf5b#air-quality-index-as-per-us-epa-standard">Defra Index</a>)</span><span class="ukdefraindex">???</span></li>
+                <h4>Astronomy</h4>
+                <li><span>Sunrise</span><span class="sunrise">00:00</span></li>
+                <li><span>Sunset</span><span class="sunset">00:00</span></li>
+                <li><span>Moonrise</span><span class="moonrise">00:00</span></li>
+                <li><span>Moonset</span><span class="moonset">00:00</span></li>
+                <li><span>Moon Phase</span><span class="moonphase">00</span></li>
+                <li><span>Moon Illumination</span><span class="moonillum">00</span></li>
+                <li><span class="lastupdated">Last Updated At: ????</span></li>
+            </ul>
+            <p>Powered by <a class="links" href="https://www.weatherapi.com/" title="Weather API">WeatherAPI.com</a></p>
+            <p><span class="creditstext">Clear Day Photo by <a class="creditslinks" href="https://unsplash.com/@pedromealha?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Pedro Mealha</a> on <a class="creditslinks" href="https://unsplash.com/photos/aerial-view-of-city-during-daytime-kCWKTI7OLQg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
+            <p><span class="creditstext">Cloudy Day Photo by <a class="creditslinks" href="https://unsplash.com/@alexblokstra?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Alex Blokstra</a> on <a class="creditslinks" href="https://unsplash.com/photos/brown-wooden-house-on-green-grass-field-near-mountain-under-white-clouds-during-daytime-3UzHzZR5SVg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
+            <p><span class="creditstext">Rainy Day Photo by <a class="creditslinks" href="https://unsplash.com/@halannahalila?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Halanna Halila</a> on <a class="creditslinks" href="https://unsplash.com/photos/green-leafed-trees-8lQyd8wEAzI?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
+            <p><span class="creditstext">Snowy Day Photo by <a class="creditslinks" href="https://unsplash.com/@xelysa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Elisa Coluccia</a> on <a class="creditslinks" href="https://unsplash.com/photos/several-snow-covered-trees-v8iWQlz5wtc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
+            <p><span class="creditstext">Clear Night Photo by <a class="creditslinks" href="https://unsplash.com/@airvibes?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ivan Codrean</a> on <a class="creditslinks" href="https://unsplash.com/photos/a-person-standing-on-top-of-a-hill-near-the-ocean-c-yuMyyc3Xk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
+            <p><span class="creditstext">Cloudy Night Photo by <a class="creditslinks" href="https://unsplash.com/@andriyko?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Andriyko Podilnyk</a> on <a class="creditslinks" href="https://unsplash.com/photos/silhouette-photography-of-mountain-E6ne6IUNxZw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
+            <p><span class="creditstext">Rainy Night Photo by <a class="creditslinks" href="https://unsplash.com/@bensow?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Benjamin Sow</a> on <a class="creditslinks" href="https://unsplash.com/photos/bokeh-photography-QjR_snVQn4c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
+            <p><span class="creditstext">Snowy Night Photo by <a class="creditslinks" href="https://unsplash.com/@vorosbenisop?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Benjamin Voros</a> on <a class="creditslinks" href="https://unsplash.com/photos/crescent-moon-above-mountain-U-Kty6HxcQc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>   
+            <p><span class="creditstext">Weather App UI From Pinterest. Link Not Found 🙁</span></p>   
+        </div>
+    </div>
+    <script src="./index.js" defer></script>
+</body>
+</html>
