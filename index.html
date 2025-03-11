@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,14 @@
     <meta name="description" content="Atmosfär - The Weather at your Fingertips">
     <meta name="keywords" content="Atmosfär, Atmosfär Weather App">
     <link rel="stylesheet" href="./index.css" media="screen">
-    <script src="https://kit.fontawesome.com/fe9589e77e.js" crossorigin="anonymous" defer></script>
+    <script src="https://kit.fontawesome.com/8f76692eca.js" crossorigin="anonymous" defer></script>
 </head>
+
 <body>
     <div class="weather-app">
+        <video class="background-video" id="bg-video" autoplay muted playsinline preload="auto">
+            <source id="bg-video-source" type="video/mp4">
+        </video>
         <div class="container">
             <div class="loader-wrapper">
                 <span class="loader"></span>
@@ -27,13 +32,16 @@
                     </small>
                 </div>
                 <div class="weather">
-                    <img src="./assets/icons/questionmark.svg" class="weatherIcon" id="weatherIcon" alt="weatherIcon" width="42" height="42"/>
-                    <span class="condition">???</span>
+                    <img src="./assets/icons/questionmark.svg" class="weatherIcon" id="weatherIcon" alt="weatherIcon"
+                        width="42" height="42" />
+                    <small>
+                        <span class="condition">???</span>
+                    </small>
                 </div>
             </div>
         </div>
         <div class="panel">
-                <input type="text" class="search" placeholder="Search Location..."/>
+            <input type="text" class="search" placeholder="Search Location..." aria-label="Search location" />
             <button class="submit" aria-label="Search">
                 <i class="fas fa-search"></i>
             </button>
@@ -208,8 +216,8 @@
                                 <span class="box-subtitle hour24">Subtitle 24</span>
                             </div>
                         </div>
-                    </div>  
-                </div>                       
+                    </div>
+                </div>
             </ul>
             <ul class="details">
                 <h4>Current Weather Details</h4>
@@ -231,8 +239,12 @@
                 <li><span>SO2 (Sulphur Dioxide)</span><span class="sulphdiox">?? μg/m3</span></li>
                 <li><span>PM2.5 (Particulate Matter Less Than 2.5 Microns)</span><span class="pm25">?? μg/m3</span></li>
                 <li><span>PM10 (Particulate Matter Less Than 10 Microns)</span><span class="pm10">?? μg/m3</span></li>
-                <li><span>Air Quality Index (As Per US <a class="links" href="https://gist.github.com/SahalMoh/b2056d823e63e1d7f51abf7232b4bf5b#air-quality-index-as-per-us-epa-standard">EPA Standards</a>)</span><span class="usepaindex">???</span></li>
-                <li><span>Air Quality Index (As Per UK <a class="links" href="https://gist.github.com/SahalMoh/b2056d823e63e1d7f51abf7232b4bf5b#air-quality-index-as-per-us-epa-standard">Defra Index</a>)</span><span class="ukdefraindex">???</span></li>
+                <li><span>Air Quality Index (As Per US <a class="links"
+                            href="https://gist.github.com/SahalMoh/b2056d823e63e1d7f51abf7232b4bf5b#air-quality-index-as-per-us-epa-standard">EPA
+                            Standards</a>)</span><span class="usepaindex">???</span></li>
+                <li><span>Air Quality Index (As Per UK <a class="links"
+                            href="https://gist.github.com/SahalMoh/b2056d823e63e1d7f51abf7232b4bf5b#air-quality-index-as-per-us-epa-standard">Defra
+                            Index</a>)</span><span class="ukdefraindex">???</span></li>
                 <h4>Astronomy</h4>
                 <li><span>Sunrise</span><span class="sunrise">00:00</span></li>
                 <li><span>Sunset</span><span class="sunset">00:00</span></li>
@@ -242,18 +254,9 @@
                 <li><span>Moon Illumination</span><span class="moonillum">00</span></li>
                 <li><span class="lastupdated">Last Updated At: ????</span></li>
             </ul>
-            <p>Powered by <a class="links" href="https://www.weatherapi.com/" title="Weather API">WeatherAPI.com</a></p>
-            <p><span class="creditstext">Clear Day Photo by <a class="creditslinks" href="https://unsplash.com/@pedromealha?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Pedro Mealha</a> on <a class="creditslinks" href="https://unsplash.com/photos/aerial-view-of-city-during-daytime-kCWKTI7OLQg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
-            <p><span class="creditstext">Cloudy Day Photo by <a class="creditslinks" href="https://unsplash.com/@alexblokstra?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Alex Blokstra</a> on <a class="creditslinks" href="https://unsplash.com/photos/brown-wooden-house-on-green-grass-field-near-mountain-under-white-clouds-during-daytime-3UzHzZR5SVg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
-            <p><span class="creditstext">Rainy Day Photo by <a class="creditslinks" href="https://unsplash.com/@halannahalila?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Halanna Halila</a> on <a class="creditslinks" href="https://unsplash.com/photos/green-leafed-trees-8lQyd8wEAzI?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
-            <p><span class="creditstext">Snowy Day Photo by <a class="creditslinks" href="https://unsplash.com/@xelysa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Elisa Coluccia</a> on <a class="creditslinks" href="https://unsplash.com/photos/several-snow-covered-trees-v8iWQlz5wtc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
-            <p><span class="creditstext">Clear Night Photo by <a class="creditslinks" href="https://unsplash.com/@airvibes?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ivan Codrean</a> on <a class="creditslinks" href="https://unsplash.com/photos/a-person-standing-on-top-of-a-hill-near-the-ocean-c-yuMyyc3Xk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
-            <p><span class="creditstext">Cloudy Night Photo by <a class="creditslinks" href="https://unsplash.com/@andriyko?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Andriyko Podilnyk</a> on <a class="creditslinks" href="https://unsplash.com/photos/silhouette-photography-of-mountain-E6ne6IUNxZw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
-            <p><span class="creditstext">Rainy Night Photo by <a class="creditslinks" href="https://unsplash.com/@bensow?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Benjamin Sow</a> on <a class="creditslinks" href="https://unsplash.com/photos/bokeh-photography-QjR_snVQn4c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>
-            <p><span class="creditstext">Snowy Night Photo by <a class="creditslinks" href="https://unsplash.com/@vorosbenisop?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Benjamin Voros</a> on <a class="creditslinks" href="https://unsplash.com/photos/crescent-moon-above-mountain-U-Kty6HxcQc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></span></p>   
-            <p><span class="creditstext">Weather App UI From Pinterest. Link Not Found 🙁</span></p>   
         </div>
     </div>
     <script src="./index.js" defer></script>
 </body>
+
 </html>

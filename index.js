@@ -1,3 +1,16 @@
+const videoElement = document.getElementById('bg-video');
+
+function handleVideoLoop() {
+  videoElement.classList.add('video-fade');
+  videoElement.addEventListener('transitionend', () => {
+    videoElement.currentTime = 0;
+    videoElement.classList.remove('video-fade');
+    videoElement.play();
+  }, { once: true });
+}
+
+videoElement.addEventListener('ended', handleVideoLoop);
+
 const weather = {
   apiKey: '3f7e6abb7a6c4e6ea9e195439241905',
 
@@ -42,6 +55,42 @@ const weather = {
     }
   },
 
+  async setBackgroundVideo(dayVideo, nightVideo, submitBackgroundDay, submitBackgroundNight, is_day) {
+    const videoElement = document.getElementById('bg-video');
+    const sourceElement = document.getElementById('bg-video-source');
+    const videoPath = is_day ? dayVideo : nightVideo;
+
+    if (sourceElement.src !== videoPath) {
+      try {
+        videoElement.classList.add('video-fade');
+
+        await new Promise(resolve => {
+          videoElement.addEventListener('transitionend', resolve, { once: true });
+          setTimeout(resolve, 1000);
+        });
+
+        sourceElement.src = videoPath;
+        await videoElement.load();
+        await videoElement.play();
+
+        videoElement.classList.remove('video-fade');
+
+      } catch (error) {
+        console.error('Video error:', error);
+        document.body.style.backgroundImage = `url(${is_day ?
+          dayVideo.replace('.mp4', '.jpg') :
+          nightVideo.replace('.mp4', '.jpg')})`;
+      }
+    }
+
+    this.setButtonBackground(is_day, submitBackgroundDay, submitBackgroundNight);
+  },
+
+  setButtonBackground(isDay, dayColor, nightColor) {
+    const submitButton = document.querySelector(".submit");
+    submitButton.style.background = isDay ? dayColor : nightColor;
+  },
+
   displayWeather(data) {
     const {
       location: { name, localtime, country },
@@ -74,8 +123,6 @@ const weather = {
       forecast: { forecastday }
     } = data;
 
-    const body = document.body;
-    const submitButton = document.querySelector(".submit");
     const weatherIcon = document.getElementById("weatherIcon");
 
     const localIconPath = icon.replace(
@@ -110,60 +157,38 @@ const weather = {
     document.querySelector(".ukdefraindex").innerHTML = ukdefraindex;
     document.querySelector(".lastupdated").innerHTML = `Last Updated At: ${last_updated}`;
 
-    const setButtonBackground = (is_day, submitBackgroundDay, submitBackgroundNight) => {
-      submitButton.style.background = is_day ? submitBackgroundDay : submitBackgroundNight;
-    };
-
-    const setBackgroundImage = (
-      dayBackground,
-      nightBackground,
-      submitBackgroundDay,
-      submitBackgroundNight
-    ) => {
-      body.style.backgroundImage = !is_day ? `url(${nightBackground})` : `url(${dayBackground})`;
-      body.style.backgroundPosition = "center";
-      body.style.backgroundSize = "cover";
-      body.style.backgroundRepeat = "no-repeat";
-      setButtonBackground(is_day, submitBackgroundDay, submitBackgroundNight);
-      body.style.transition = "1.25s ease-in-out";
-    };
-
     if (code === 1000) {
-      setBackgroundImage(
-        "./assets/day_bg/ClearDay.jpg",
-        "./assets/night_bg/ClearNight.jpg",
+      this.setBackgroundVideo(
+        './assets/day_bg/ClearDay.mp4',
+        './assets/night_bg/ClearNight.mp4',
         "#e5ba92",
-        "#181e27"
+        "#181e27",
+        is_day
       );
-    } else if (
-      [
-        1003, 1006, 1009, 1030, 1069, 1087, 1135, 1273, 1276, 1279, 1282,
-      ].includes(code)
-    ) {
-      setBackgroundImage(
-        "./assets/day_bg/CloudyDay.jpg",
-        "./assets/night_bg/CloudyNight.jpg",
+    } else if ([1003, 1006, 1009, 1030, 1069, 1087, 1135, 1273, 1276, 1279, 1282,].includes(code)) {
+      this.setBackgroundVideo(
+        './assets/day_bg/CloudyDay.mp4',
+        './assets/night_bg/CloudyNight.mp4',
         "#fa6d1b",
-        "#181e27"
+        "#181e27",
+        is_day
       );
-    } else if (
-      [
-        1063, 1069, 1072, 1150, 1153, 1180, 1183, 1186, 1189, 1192, 1195,
-        1204, 1207, 1240, 1243, 1246, 1249, 1252,
-      ].includes(code)
-    ) {
-      setBackgroundImage(
-        "./assets/day_bg/RainyDay.jpg",
-        "./assets/night_bg/RainyNight.jpg",
+    } else if ([1063, 1069, 1072, 1150, 1153, 1180, 1183, 1186, 1189, 1192, 1195,
+      1204, 1207, 1240, 1243, 1246, 1249, 1252,].includes(code)) {
+      this.setBackgroundVideo(
+        './assets/day_bg/RainyDay.mp4',
+        './assets/night_bg/RainyNight.mp4',
         "#647d75",
-        "#325c80"
+        "#325c80",
+        is_day
       );
     } else {
-      setBackgroundImage(
-        "./assets/day_bg/SnowyDay.jpg",
-        "./assets/night_bg/SnowyNight.jpg",
+      this.setBackgroundVideo(
+        './assets/day_bg/SnowyDay.mp4',
+        './assets/night_bg/SnowyNight.mp4',
         "#1b1b1b",
-        "#1b1b1b"
+        "#1b1b1b",
+        is_day
       );
     }
 
@@ -179,7 +204,7 @@ const weather = {
       weatherBox.querySelector(".box-title").innerText = `${forecastHour.temp_c}°C / ${forecastHour.temp_f}°F`;
       weatherBox.querySelector(".box-subtitle").innerText = forecastHour.time;
     }
-    
+
   },
 
   displayAstronomy(data) {
@@ -242,4 +267,9 @@ getWeatherByIP();
 
 window.addEventListener("offline", () => {
   alert("No Internet Connection. Please check your internet connection and try again.");
+});
+
+document.getElementById('bg-video').addEventListener('error', (e) => {
+  console.error('Video error:', e.target.error);
+  document.body.style.backgroundImage = `url(./assets/fallback.png)`;
 });

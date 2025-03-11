@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
-html, body {
+html,
+body {
     margin: 0;
-    font-family: "Radio Canada Big", sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-optical-sizing: auto;
     background: #111;
     overflow-y: hidden;
@@ -34,10 +35,8 @@ img {
     background-color: #ffffff;
     content: '';
     opacity: .3;
-    -webkit-transform: scaleX(.9);
     transform: scaleX(.9);
-    transition-property: opacity, -webkit-transform;
-    transition-duration: .3s;
+    transition: opacity 0.3s, transform 0.3s;
 }
 
 .links:hover::before {
@@ -50,11 +49,11 @@ img {
     box-sizing: border-box;
 }
 
-h1{
+h1 {
     font-weight: 400;
 }
 
-h3{
+h3 {
     list-style: none;
     display: flex;
     font-family: "Radio Canada Big", sans-serif;
@@ -63,15 +62,35 @@ h3{
     letter-spacing: 0.4px;
 }
 
+.weatherIcon {
+    transform: scale(1.5);
+    transform-origin: center;
+}
+
 .weather-app {
     min-height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     color: #fff;
     position: relative;
-    transition: 500ms;
     opacity: 1;
+    overflow: hidden;
+}
+
+.background-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 0;
+    object-fit: cover;
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.background-video.video-fade {
+    opacity: 0;
 }
 
 .weather-app::before {
@@ -82,7 +101,13 @@ h3{
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
-    z-index: 0;
+    z-index: 1;
+}
+
+.condition {
+    position: relative;
+    top: -5.5px;
+    left: 3px;
 }
 
 .container {
@@ -98,7 +123,7 @@ h3{
     padding: 2em 3em 4em 3em;
 }
 
-.container > div {
+.container>div {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -168,51 +193,6 @@ p {
     text-align: center;
 }
 
-.creditstext {
-    font-size: 10px;
-    opacity: 50%;
-    text-align: center;
-}
-
-
-.creditslinks {
-    text-decoration: none;
-    font-size: 10px;
-    color: #ffffff;
-    font-weight: 300;
-    margin: 0 2px;
-    position: relative;
-    text-align: center;
-    display: inline-block;
-}
-
-.creditslinks::before {
-    position: absolute;
-    margin: 0 auto;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #ffffff;
-    content: '';
-    opacity: .3;
-    -webkit-transform: scaleX(.9);
-    transform: scaleX(.9);
-    transition-property: opacity, -webkit-transform;
-    transition-duration: .3s;
-}
-
-.creditslinks:hover::before {
-    opacity: 1;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);
-}
-
-p {
-    margin-top: 0;
-    margin-bottom: 5px;
-}
-
 .panel form {
     margin-bottom: 3em;
 }
@@ -244,14 +224,14 @@ p {
     right: 0;
     padding: 1.5em;
     margin: 0;
-    border: none; 
+    border: none;
     outline: none;
     background: #6649b8;
     color: #fff;
     cursor: pointer;
     font-size: 1.2em;
-    transition: 0.4s; 
-    border-radius: 0 0 0 20px; 
+    transition: 0.4s;
+    border-radius: 0 0 0 20px;
 }
 
 .submit:hover {
@@ -282,7 +262,9 @@ p {
 
 
 @media screen and (max-width: 800px) {
-    .panel, .container {
+
+    .panel,
+    .container {
         position: relative;
         width: 100%;
         top: initial;
@@ -299,9 +281,11 @@ p {
     .weather-app {
         min-height: 30em;
     }
+
     .container div {
         font-size: 8px;
     }
+
     .weather span {
         display: table;
         margin: 0 auto;
@@ -317,8 +301,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient( 85.2deg,  rgba(33,3,40,1) 7.5%, rgba(65,5,72,1) 88.7% );
-    display: flex;
+    background-image: linear-gradient(85.2deg, rgba(33, 3, 40, 1) 7.5%, rgba(65, 5, 72, 1) 88.7%);
     opacity: 1;
     transition: opacity 1.8s ease-in-out;
     z-index: 2;
@@ -364,22 +347,27 @@ p {
         box-shadow: inset 0 0 0 1rem #fff;
         opacity: 1;
     }
-    50%, 100% {
+
+    50%,
+    100% {
         box-shadow: inset 0 0 0 0 #fff;
         opacity: 0;
     }
 }
 
 @keyframes pulsOut {
-    0%, 50% {
+
+    0%,
+    50% {
         box-shadow: 0 0 0 0 #fff;
         opacity: 0;
     }
+
     100% {
         box-shadow: 0 0 0 1rem #fff;
         opacity: 1;
     }
-} 
+}
 
 .scroll-container {
     position: relative;
@@ -409,7 +397,7 @@ p {
     padding-bottom: 0;
     margin-bottom: 1em;
     transition: transform 0.3s ease;
-    position: relative; 
+    position: relative;
 }
 
 .weather-box {
