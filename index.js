@@ -240,7 +240,7 @@ document.querySelector(".search").addEventListener("keyup", (event) => {
 
 async function getPublicIP() {
   try {
-    const response = await fetch("https://api.ipify.org?format=json");
+    const response = await fetch("https://ipapi.co/json/");
     if (!response.ok) {
       throw new Error("Failed to get public IP");
     }
