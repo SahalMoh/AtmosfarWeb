@@ -238,32 +238,37 @@ document.querySelector(".search").addEventListener("keyup", (event) => {
   }
 });
 
-async function getPublicIP() {
-  try {
-    const response = await fetch("https://ipapi.co/json/");
-    if (!response.ok) {
-      throw new Error("Failed to get public IP");
-    }
-    const data = await response.json();
-    return data.ip;
-  } catch (error) {
-    console.error("Error fetching public IP:", error);
+async function getUserLocation() {
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+
+        await getWeatherByCoords(latitude, longitude);
+      },
+      (error) => {
+        console.error("Error getting location:", error);
+        alert("Location access denied. Please enable it in browser settings.");
+      }
+    );
+  } else {
+    console.error("Geolocation is not supported by this browser.");
+    alert("Geolocation is not supported by your browser.");
   }
 }
 
-async function getWeatherByIP() {
+async function getWeatherByCoords(lat, lon) {
   try {
-    const ip = await getPublicIP();
-    if (!ip) {
-      throw new Error("Failed to get IP");
-    }
-    await weather.fetchWeather(ip);
+    await weather.fetchWeather(`${lat},${lon}`);
   } catch (error) {
-    console.error("Error fetching weather by IP:", error);
+    console.error("Error fetching weather by location:", error);
   }
 }
 
-getWeatherByIP();
+// Call function on page load
+getUserLocation();
 
 window.addEventListener("offline", () => {
   alert("No Internet Connection. Please check your internet connection and try again.");
